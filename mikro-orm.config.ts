@@ -1,6 +1,11 @@
 import * as path from 'path';
 import * as dotenv from 'dotenv';
-dotenv.config();
+
+const configName = `.env.${process.env.NODE_ENV ?? 'development'}`;
+
+dotenv.config({
+  path: path.resolve(process.cwd(), configName),
+});
 
 import { Migrator } from '@mikro-orm/migrations';
 import { MikroOrmModuleOptions } from '@mikro-orm/nestjs';

@@ -16,8 +16,6 @@ export class AppService {
   async getHello(): Promise<string> {
     const user = await this.userRepo.findOne({ id: 1 });
 
-    console.log(this.env.get('ORM_DEBUG'));
-
     if (!user) {
       return '';
     }

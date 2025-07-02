@@ -1,17 +1,52 @@
+## Set up development
+
 ### Installation
 
-Setting up pnpm `npm install -g pnpm@latest-10`.
+Enable and prepare `pnpm` using **Corepack** (comes with Node.js ≥16.13):
 
-Install dependencies with `pnpm i` command.
+```bash
+corepack enable
+corepack prepare pnpm@latest-10 --activate
+```
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+---
 
 ### Environment
 
-Duplicate `.env.development.example` file with name `.env.development`.
+Duplicate `.env.development.example` file and name it `.env.development`.
+
+---
+
+### Prepare docker
+
+Before start development you need to deploy local postgres instance via docker
+
+```bash
+docker compose up -d
+```
+
+---
 
 ### Migrate DB
 
-Just run `pnpm run orm:up`.
+Run database migration:
+
+```bash
+pnpm run orm:up
+```
+
+---
 
 ### Run Dev
 
-Click f5 key(vscode only) or run `pnpm run start:dev`.
+Press `F5` (VS Code only) or run:
+
+```bash
+pnpm run start:dev
+```
